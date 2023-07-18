@@ -5,7 +5,8 @@ import { Request } from 'express';
 export class LineWebhookController {
   @Post()
   handleWebhook(@Req() request: Request) {
-    console.log(request.body);
+    const data = JSON.stringify(request.body);
+    console.log(data);
     // Display the received information in the console
 
     // You can also send the information to the browser by returning a response
