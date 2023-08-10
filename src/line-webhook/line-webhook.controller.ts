@@ -1,15 +1,11 @@
-import { Controller, Post, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Controller, Post, Body } from '@nestjs/common';
 
 @Controller('webhook')
 export class LineWebhookController {
   @Post()
-  handleWebhook(@Req() request: Request) {
-    const data = JSON.stringify(request.body, null, 2);
+  handleWebhook(@Body() payload: any) {
+    const data = JSON.stringify(payload, null, 2);
     console.log(data);
-    // Display the received information in the console
-
-    // You can also send the information to the browser by returning a response
-    return 'Webhook received!';
+    return { message: 'Webhook data logged successfully!' };
   }
 }
