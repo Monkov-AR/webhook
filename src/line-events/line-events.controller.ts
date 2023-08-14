@@ -8,19 +8,17 @@ import {
   Delete,
 } from '@nestjs/common';
 import { LineEventsService } from './line-events.service';
-import { EventType, CreateLineEventDto } from './dto/create-line-event.dto';
 import { UpdateLineEventDto } from './dto/update-line-event.dto';
 
 @Controller('line-events')
 export class LineEventsController {
-  constructor(private readonly lineEventsService: LineEventsService) {}
+  constructor(private readonly lineEventsService: LineEventsService) { }
 
   @Post()
-  async create(@Body() createLineEventDto: CreateLineEventDto) {
-    if (createLineEventDto.type === EventType.Follow) {
-      return this.lineEventsService.create(createLineEventDto);
-    }
-    // Handle other event types if needed
+  async create(@Body() payload: any) {
+
+    return this.lineEventsService.createLineId(payload);
+
   }
 
   @Get()
