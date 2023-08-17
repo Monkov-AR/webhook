@@ -3,9 +3,11 @@ import {
   Get,
   Post,
   Body,
+  Res,
   Patch,
   Param,
   Delete,
+  HttpStatus,
 } from '@nestjs/common';
 import { LineEventsService } from './line-events.service';
 import { UpdateLineEventDto } from './dto/update-line-event.dto';
@@ -15,10 +17,17 @@ export class LineEventsController {
   constructor(private readonly lineEventsService: LineEventsService) { }
 
   @Post()
-  async create(@Body() payload: any) {
+  async handleLineEvent(@Body() payload: any, @Res() res): Promise<void> {
+    // Perform the security and channel validation.
 
-    return this.lineEventsService.createLineId(payload);
-
+    try {
+      await this.lineEventsService.handleEvent(payload.events[0]);
+      res.status(HttpStatus.OK).send();
+    } catch (error) {
+      console.error('Error handling LINE event:', error);
+      res.status(HttpStatus.INTERNAL_SERVER_ERROR).send();
+    }
+    // return this.lineEventsService.createLineId(payload);
   }
 
   @Get()

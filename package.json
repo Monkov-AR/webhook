@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@line/bot-sdk": "^7.5.2",
+    "@nestjs/axios": "^3.0.0",
     "@nestjs/class-validator": "^0.13.1",
     "@nestjs/common": "^10.0.5",
     "@nestjs/config": "^3.0.0",
@@ -28,6 +29,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.5",
     "@nestjs/typeorm": "^10.0.0",
+    "axios": "^1.4.0",
     "linebot": "^1.6.1",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",

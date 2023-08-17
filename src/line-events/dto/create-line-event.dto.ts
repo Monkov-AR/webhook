@@ -5,6 +5,7 @@ import { IsNotEmpty, IsString, IsEmail, IsEnum } from '@nestjs/class-validator';
 export enum EventType {
     Message = 'message',
     Follow = 'follow',
+    Unfollow = 'unfollow',
     // Add more event types as needed
 }
 

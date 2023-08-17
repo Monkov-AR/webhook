@@ -24,6 +24,10 @@
 
 ## Description
 
+Create
+1. nest generate service [SERVICE-NAME]
+2. nest generate resource [RESOURCE-NAME]
+
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation

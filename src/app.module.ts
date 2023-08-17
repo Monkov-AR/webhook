@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LineEventsModule } from './line-events/line-events.module';
 import { LineWebhookController } from './line-webhook/line-webhook.controller';
+import { LinkstaffApiService } from './api/linkstaff-api/linkstaff-api.service';
+import { UtilsModule } from './utils/utils.module';
 
 @Module({
   imports: [
@@ -27,8 +29,9 @@ import { LineWebhookController } from './line-webhook/line-webhook.controller';
       inject: [ConfigService],
     }),
     LineEventsModule,
+    UtilsModule,
   ],
   controllers: [AppController, LineWebhookController],
-  providers: [AppService],
+  providers: [AppService, LinkstaffApiService],
 })
 export class AppModule {}
